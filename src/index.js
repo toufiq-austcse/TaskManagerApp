@@ -21,6 +21,28 @@ const port = process.env.PORT || 3000;
 //    res.status(503).send('The server is under maintainence');
 // });
 
+//file uploading
+// const multer = require('multer');
+// const upload = multer({
+//     dest:'images',
+//     limits:{
+//         fileSize: 1000000
+//     },
+//     fileFilter(req,file,cb){
+//         if(!file.originalname.match(/\.(doc|docx)$/)){
+//             return cb(new Error('Please Upload a doc'))
+//         }
+//         cb(undefined,true);
+//     }
+// });
+//
+//
+// app.post('/upload',upload.single('upload'),(req,res)=>{
+//     res.send();
+// },(error,req,res,next)=>{
+//     res.status(400).send({error:error.message});
+// });
+
 app.use(express.json());
 app.use(userRoute);
 app.use(taskRoute);
@@ -41,13 +63,13 @@ app.listen(port,()=>{
 // myFunc();
 
 
-const main = async ()=>{
-   // const task =await Task.findById('5cfe85911d0d674184ff6b1f');
-   // await task.populate('owner').execPopulate();
-   // console.log(task);
-
-   const user = await User.findById('5cfe842063280e28acc36566');
-   await user.populate('tasks').execPopulate();
-   console.log(user.tasks);
-};
-main();
+// const main = async ()=>{
+//    // const task =await Task.findById('5cfe85911d0d674184ff6b1f');
+//    // await task.populate('owner').execPopulate();
+//    // console.log(task);
+//
+//    const user = await User.findById('5cfe842063280e28acc36566');
+//    await user.populate('tasks').execPopulate();
+//    console.log(user.tasks);
+// };
+// main();
